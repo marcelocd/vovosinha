@@ -21,6 +21,7 @@ en:
         remember_me: Remember me
         reset_password_sent_at: Reset password sent at
         reset_password_token: Reset password token
+        role: Role
         sign_in_count: Sign in count
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
@@ -29,6 +30,14 @@ en:
       user:
         one: User
         other: Users
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              invalid_format: "format is invalid. Allowed characters: 'a' to 'z', '0' to '9', '_' and '.'"
+            birthdate:
+              invalid: "cannot be tomorrow or later"
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.

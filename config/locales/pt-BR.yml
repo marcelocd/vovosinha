@@ -21,6 +21,7 @@ pt-BR:
         remember_me: Lembre-se de mim
         reset_password_sent_at: Resetar senha enviado em
         reset_password_token: Resetar token de senha
+        role: Papel
         sign_in_count: Contagem de acessos
         unconfirmed_email: E-mail não confirmado
         unlock_token: Token de desbloqueio
@@ -29,6 +30,14 @@ pt-BR:
       user:
         one: Usuário
         other: Usuários
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              invalid_format: "com formato inválido. Caracteres permitidos: 'a' a 'z', '0' a '9', '_' e '.'"
+            birthdate:
+              invalid: "não pode ser amanhã ou depois"
   devise:
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.
