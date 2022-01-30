@@ -7,4 +7,6 @@ class ServiceCategory < ApplicationRecord
                    uniqueness: { case_sensitive: false },
                    length: { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
   validates :description, length: { maximum: MAX_DESCRIPTION_LENGTH }
+
+  has_many :services
 end

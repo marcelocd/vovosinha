@@ -7,6 +7,13 @@ pt-BR:
         first_name : Primeiro nome
         gender: Gênero
         last_name: Último nome
+      service:
+        commission_percentage: Porcentagem de comissão
+        deleted_at: Deletado em
+        description: Descrição
+        duration_minutes: Duração
+        name: Nome
+        price_cents: Preço
       service_category:
         deleted_at: Deletada em
         description: Descrição
@@ -43,6 +50,9 @@ pt-BR:
       client:
         one: Cliente
         other: Clientes
+      service:
+        one: Serviço
+        other: Serviços
       service_category:
         one: Categoria de Serviço
         other: Categorias de Serviço

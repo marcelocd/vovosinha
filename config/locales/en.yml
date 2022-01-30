@@ -7,6 +7,13 @@ en:
         first_name: First name
         gender: Gender
         last_name: Last name
+      service:
+        commission_percentage: Commission percentage
+        deleted_at: Deleted at
+        description: Description
+        duration_minutes: Duration
+        name: Name
+        price_cents: Price
       service_category:
         deleted_at: Deleted at
         description: Description
@@ -43,6 +50,9 @@ en:
       client:
         one: Client
         other: Clients
+      service:
+        one: Service
+        other: Services
       service_category:
         one: Service Category
         other: Service Categories
