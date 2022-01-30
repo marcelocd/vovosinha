@@ -15,7 +15,7 @@ class User < ApplicationRecord
   MAX_FIRST_NAME_LENGTH = 30
   MAX_LAST_NAME_LENGTH = 30
 
-  enum role: { admin: 0, manager: 1, employee: 2 }
+  enum role: ROLES
 
   before_save :downcase_email
   before_save :downcase_username
