@@ -7,6 +7,10 @@ pt-BR:
         first_name : Primeiro nome
         gender: Gênero
         last_name: Último nome
+      service_category:
+        deleted_at: Deletada em
+        description: Descrição
+        name: Nome
       user:
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação
@@ -39,6 +43,9 @@ pt-BR:
       client:
         one: Cliente
         other: Clientes
+      service_category:
+        one: Categoria de Serviço
+        other: Categorias de Serviço
       user:
         one: Usuário
         other: Usuários
