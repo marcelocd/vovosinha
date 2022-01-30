@@ -15,4 +15,18 @@ RSpec.describe Service, type: :model do
     it { should validate_numericality_of(:commission_percentage).is_greater_than(0) }
     it { should validate_numericality_of(:duration_minutes).is_greater_than(0).only_integer }
   end
+
+  describe '#commission_cents' do
+    let!(:service) { create(:service, price_cents: 1_000, commission_percentage: 10.12) }
+    it 'should bring the commission cents rounded up' do
+      expect(service.commission_cents).to eq(102)
+    end
+  end
+
+  describe '#commission' do
+    let!(:service) { create(:service, price_cents: 1_000, commission_percentage: 10.0) }
+    it 'should bring the commission cents rounded up' do
+      expect(service.commission).to eq(1.0)
+    end
+  end
 end

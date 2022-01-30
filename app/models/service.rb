@@ -12,4 +12,14 @@ class Service < ApplicationRecord
   validates :duration_minutes, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   belongs_to :service_category
+
+  def commission_cents
+    return if price_cents.nil? || commission_percentage.nil?
+    (price_cents * (commission_percentage / 100.0)).ceil
+  end
+
+  def commission
+    return if commission_cents.nil?
+    commission_cents / 100.0
+  end
 end
