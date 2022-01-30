@@ -4,6 +4,7 @@ class Client < ApplicationRecord
   MAX_EMAIL_LENGTH = 105
   MAX_FIRST_NAME_LENGTH = 30
   MAX_LAST_NAME_LENGTH = 30
+  PHONE_NUMBER_LENGTH = 10
 
   enum gender: GENDERS
 
@@ -57,14 +58,14 @@ class Client < ApplicationRecord
 
   def main_phone_number_must_have_ten_digits
     return if main_phone_number.nil?
-    if main_phone_number.gsub(/[^\d]+/, '').length != 10
+    if main_phone_number.gsub(/[^\d]+/, '').length != PHONE_NUMBER_LENGTH
       errors.add(:main_phone_number, :ten_digits)
     end
   end
 
   def second_phone_number_must_have_ten_digits
     return if second_phone_number.nil?
-    if second_phone_number.gsub(/[^\d]+/, '').length != 10
+    if second_phone_number.gsub(/[^\d]+/, '').length != PHONE_NUMBER_LENGTH
       errors.add(:second_phone_number, :ten_digits)
     end
   end
