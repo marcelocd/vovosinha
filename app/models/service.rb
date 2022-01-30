@@ -13,6 +13,11 @@ class Service < ApplicationRecord
 
   belongs_to :service_category
 
+  def price
+    return if price_cents.nil?
+    price_cents / 100.0
+  end
+
   def commission_cents
     return if price_cents.nil? || commission_percentage.nil?
     (price_cents * (commission_percentage / 100.0)).ceil
