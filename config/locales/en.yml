@@ -1,6 +1,12 @@
 en:
   activerecord:
     attributes:
+      client:
+        deleted_at: Deleted at
+        email: Email
+        first_name: First name
+        gender: Gender
+        last_name: Last name
       user:
         confirmation_sent_at: Confirmation sent at
         confirmation_token: Confirmation token
@@ -9,9 +15,12 @@ en:
         current_password: Current password
         current_sign_in_at: Current sign in at
         current_sign_in_ip: Current sign in IP
+        deleted_at: Deleted at
         email: Email
         encrypted_password: Encrypted password
         failed_attempts: Failed attempts
+        first_name: First name
+        last_name: Last name
         last_sign_in_at: Last sign in at
         last_sign_in_ip: Last sign in IP
         locked_at: Locked at
@@ -27,11 +36,23 @@ en:
         unlock_token: Unlock token
         updated_at: Updated at
     models:
+      client:
+        one: Client
+        other: Clients
       user:
         one: User
         other: Users
     errors:
       models:
+        client:
+          attributes:
+            birthdate:
+              invalid: "cannot be tomorrow or later"
+            main_phone_number:
+              ten_digits: "must have 10 digits"
+            second_phone_number:
+              equal_to_main_phone_number: "must be different from the main phone number"
+              ten_digits: "must have 10 digits"
         user:
           attributes:
             username:

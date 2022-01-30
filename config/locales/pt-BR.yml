@@ -1,6 +1,12 @@
 pt-BR:
   activerecord:
     attributes:
+      client:
+        deleted_at: Deletado em
+        email: E-mail
+        first_name : Primeiro nome
+        gender: Gênero
+        last_name: Último nome
       user:
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação
@@ -9,9 +15,12 @@ pt-BR:
         current_password: Senha atual
         current_sign_in_at: Atualmente logado em
         current_sign_in_ip: IP do acesso atual
+        deleted_at: Deletado em
         email: E-mail
         encrypted_password: Senha criptografada
         failed_attempts: Tentativas sem sucesso
+        first_name: Primeiro nome
+        last_name: Último nome
         last_sign_in_at: Último acesso em
         last_sign_in_ip: Último IP de acesso
         locked_at: Bloqueado em
@@ -27,11 +36,23 @@ pt-BR:
         unlock_token: Token de desbloqueio
         updated_at: Atualizado em
     models:
+      client:
+        one: Cliente
+        other: Clientes
       user:
         one: Usuário
         other: Usuários
     errors:
-      models:
+      models: 
+        client:
+          attributes:
+            birthdate:
+              invalid: "não pode ser amanhã ou depois"
+            main_phone_number:
+              ten_digits: "deve ter 10 dígitos"
+            second_phone_number:
+              equal_to_main_phone_number: "deve ser diferente do número de telefone principal"
+              ten_digits: "deve ter 10 dígitos"
         user:
           attributes:
             username:
