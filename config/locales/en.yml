@@ -2,11 +2,23 @@ en:
   activerecord:
     attributes:
       client:
+        birthdate: Birth date
         deleted_at: Deleted at
         email: Email
         first_name: First name
         gender: Gender
         last_name: Last name
+        main_phone_number: Main phone number
+        second_phone_number: Second phone number
+      professional:
+        birthdate: Birth date
+        deleted_at: Deleted at
+        email: Email
+        first_name : First name
+        last_name: Last name
+        main_phone_number: Main phone number
+        second_phone_number: Second phone number
+        ssn: SSN
       service:
         commission_percentage: Commission percentage
         deleted_at: Deleted at
@@ -19,6 +31,7 @@ en:
         description: Description
         name: Name
       user:
+        birthdate: Birth date
         confirmation_sent_at: Confirmation sent at
         confirmation_token: Confirmation token
         confirmed_at: Confirmed at
@@ -50,6 +63,9 @@ en:
       client:
         one: Client
         other: Clients
+      professional:
+        one: Professional
+        other: Professionals
       service:
         one: Service
         other: Services
@@ -65,6 +81,17 @@ en:
           attributes:
             birthdate:
               invalid: "cannot be tomorrow or later"
+            main_phone_number:
+              ten_digits: "must have 10 digits"
+            second_phone_number:
+              equal_to_main_phone_number: "must be different from the main phone number"
+              ten_digits: "must have 10 digits"
+        professional:
+          attributes:
+            birthdate:
+              invalid: "cannot be tomorrow or later"
+            ssn:
+              nine_digits: "must have 9 digits"
             main_phone_number:
               ten_digits: "must have 10 digits"
             second_phone_number:
