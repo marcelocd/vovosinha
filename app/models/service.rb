@@ -13,6 +13,8 @@ class Service < ApplicationRecord
 
   belongs_to :service_category
 
+  has_many :service_order_items
+
   def price
     return if price_cents.nil?
     price_cents / 100.0

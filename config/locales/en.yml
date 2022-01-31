@@ -37,6 +37,12 @@ en:
         total_price_cents: Total price
         total_commission_cents: Total commission
         total_tip_cents: Total tip
+      service_order_item:
+        deleted_at: Deleted at
+        service_name: Service name
+        service_price_cents: Service price
+        service_discount_cents: Service discount
+        service_commission_cents: Service commission
       user:
         birthdate: Birth date
         confirmation_sent_at: Confirmation sent at
@@ -82,6 +88,9 @@ en:
       service_order:
         one: Service Order
         other: Service Orders
+      service_order_items:
+        one: Service Order Item
+        other: Service Order Items
       user:
         one: User
         other: Users
@@ -115,6 +124,12 @@ en:
               invalid: "must be less than subtotal price"
             total_price_cents:
               invalid: "must be greater than or equal to total commission"
+        service_order_item:
+          attributes:
+            service_commission_cents:
+              invalid: "must be less than or equal to service price"
+            service_discount_cents:
+              invalid: "must be less than or equal to service price minus service commission"
         user:
           attributes:
             username:

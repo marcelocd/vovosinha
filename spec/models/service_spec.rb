@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Service, type: :model do
   describe 'associations' do
     it { should belong_to(:service_category) }
+    it { should have_many(:service_order_items) }
   end
 
   describe 'validations' do

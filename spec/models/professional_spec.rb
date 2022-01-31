@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Professional, type: :model do
+  describe 'associations' do
+    it { should have_many(:service_order_items) }
+  end
+
   describe 'validations' do
     it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_length_of(:email).is_at_most(Professional::MAX_EMAIL_LENGTH) }

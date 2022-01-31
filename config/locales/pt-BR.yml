@@ -37,6 +37,12 @@ pt-BR:
         total_price_cents: Preço total
         total_commission_cents: Comissão total
         total_tip_cents: Gorjeta total
+      service_order_item:
+        deleted_at: Deletado em
+        service_name: Nome do serviço
+        service_price_cents: Preço do serviço
+        service_discount_cents: Desconto do serviço
+        service_commission_cents: Comissão do serviço
       user:
         birthdate: Data de aniversário
         confirmation_sent_at: Confirmação enviada em
@@ -82,6 +88,9 @@ pt-BR:
       service_order:
         one: Pedido de Serviço
         other: Pedidos de Serviço
+      service_order_item:
+        one: Item de pedido de serviço
+        other: Itens de pedido de serviço
       user:
         one: Usuário
         other: Usuários
@@ -115,6 +124,12 @@ pt-BR:
               invalid: "deve ser menor que o preço subtotal"
             total_price_cents:
               invalid: "deve ser maior que ou igual à comissão total"
+        service_order_item:
+          attributes:
+            service_commission_cents:
+              invalid: "deve ser menor que ou igual ao preço do serviço"
+            service_discount_cents:
+              invalid: "deve ser menor que ou igual ao preço do serviço menos a comissão do serviço"
         user:
           attributes:
             username:

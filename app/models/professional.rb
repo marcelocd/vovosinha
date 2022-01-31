@@ -5,7 +5,7 @@ class Professional < ApplicationRecord
   MAX_LAST_NAME_LENGTH = 30
   PHONE_NUMBER_LENGTH = 10
   SSN_LENGTH = 9
-  SSN_REGEXP = /\A(?!000|666)[0-8][0-9]{2}?-(?!00)[0-9]{2}?-(?!0000)[0-9]{4}\z/
+  SSN_REGEXP = /\A(?!000|666)[0-8][0-9]{2}-?(?!00)[0-9]{2}-?(?!0000)[0-9]{4}\z/
 
   before_save :downcase_email
   before_save :remove_non_digits_from_ssn
@@ -28,6 +28,8 @@ class Professional < ApplicationRecord
   validate :main_and_second_phone_numbers_must_be_different
   validate :main_phone_number_must_have_ten_digits
   validate :second_phone_number_must_have_ten_digits
+
+  has_many :service_order_items
 
   has_one_attached :photo
 
