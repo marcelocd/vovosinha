@@ -30,6 +30,13 @@ pt-BR:
         deleted_at: Deletada em
         description: Descrição
         name: Nome
+      service_order:
+        deleted_at: Deletado em
+        subtotal_price_cents: Preço subtotal
+        total_discount_cents: Desconto total
+        total_price_cents: Preço total
+        total_commission_cents: Comissão total
+        total_tip_cents: Gorjeta total
       user:
         birthdate: Data de aniversário
         confirmation_sent_at: Confirmação enviada em
@@ -72,6 +79,9 @@ pt-BR:
       service_category:
         one: Categoria de Serviço
         other: Categorias de Serviço
+      service_order:
+        one: Pedido de Serviço
+        other: Pedidos de Serviço
       user:
         one: Usuário
         other: Usuários
@@ -97,6 +107,14 @@ pt-BR:
             second_phone_number:
               equal_to_main_phone_number: "deve ser diferente do número de telefone principal"
               ten_digits: "deve ter 10 dígitos"
+        service_order:
+          attributes:
+            total_commission_cents:
+              invalid: "deve ser menor que ou igual ao preço total"
+            total_discount_cents:
+              invalid: "deve ser menor que o preço subtotal"
+            total_price_cents:
+              invalid: "deve ser maior que ou igual à comissão total"
         user:
           attributes:
             username:

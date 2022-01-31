@@ -23,6 +23,8 @@ class Client < ApplicationRecord
   validate :main_phone_number_must_have_ten_digits
   validate :second_phone_number_must_have_ten_digits
 
+  has_many :service_orders
+
   def full_name
     "#{first_name} #{last_name}"
   end

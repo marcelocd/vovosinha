@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do
+  describe 'associations' do
+    it { should have_many(:service_orders) }
+  end
+  
   describe 'validations' do
     it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_length_of(:email).is_at_most(Client::MAX_EMAIL_LENGTH) }

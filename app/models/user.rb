@@ -37,6 +37,8 @@ class User < ApplicationRecord
 
   validate :birthdate_must_be_today_or_before
 
+  has_many :service_orders, foreign_key: 'creator_id'
+
   has_one_attached :profile_image
 
   def full_name

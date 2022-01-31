@@ -30,6 +30,13 @@ en:
         deleted_at: Deleted at
         description: Description
         name: Name
+      service_order:
+        deleted_at: Deleted_at
+        subtotal_price_cents: Subtotal price
+        total_discount_cents: Total discount
+        total_price_cents: Total price
+        total_commission_cents: Total commission
+        total_tip_cents: Total tip
       user:
         birthdate: Birth date
         confirmation_sent_at: Confirmation sent at
@@ -72,6 +79,9 @@ en:
       service_category:
         one: Service Category
         other: Service Categories
+      service_order:
+        one: Service Order
+        other: Service Orders
       user:
         one: User
         other: Users
@@ -97,6 +107,14 @@ en:
             second_phone_number:
               equal_to_main_phone_number: "must be different from the main phone number"
               ten_digits: "must have 10 digits"
+        service_order:
+          attributes:
+            total_commission_cents:
+              invalid: "must be less than or equal to total price"
+            total_discount_cents:
+              invalid: "must be less than subtotal price"
+            total_price_cents:
+              invalid: "must be greater than or equal to total commission"
         user:
           attributes:
             username:
