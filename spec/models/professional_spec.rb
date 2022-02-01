@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Professional, type: :model do
   describe 'associations' do
     it { should have_many(:service_order_items) }
+    it { should have_many(:tips) }
   end
 
   describe 'validations' do

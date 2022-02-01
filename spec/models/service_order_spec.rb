@@ -5,6 +5,7 @@ RSpec.describe ServiceOrder, type: :model do
     it { should belong_to(:creator).class_name('User').with_foreign_key('creator_id') }
     it { should belong_to(:client) }
     it { should have_many(:service_order_items) }
+    it { should have_many(:tips) }
   end
 
   describe 'validations' do
