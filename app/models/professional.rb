@@ -30,6 +30,7 @@ class Professional < ApplicationRecord
   validate :second_phone_number_must_have_ten_digits
 
   has_many :service_order_items
+  has_many :commissions
   has_many :tips
 
   has_one_attached :photo

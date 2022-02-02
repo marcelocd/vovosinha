@@ -5,6 +5,7 @@ RSpec.describe ServiceOrderItem, type: :model do
     it { should belong_to(:service) }
     it { should belong_to(:service_order) }
     it { should belong_to(:professional) }
+    it { should have_many(:commissions) }
   end 
 
   describe 'validations' do
