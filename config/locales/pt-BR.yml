@@ -136,6 +136,10 @@ pt-BR:
               invalid_format: "com formato inválido. Caracteres permitidos: 'a' a 'z', '0' a '9', '_' e '.'"
             birthdate:
               invalid: "não pode ser amanhã ou depois"
+            password:
+              blank: "não pode ficar em branco"
+              too_long: "deve ter no máximo %{maximum} carateres"
+              too_short: "deve ter pelo menos 8 caracteres"
   devise:
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.

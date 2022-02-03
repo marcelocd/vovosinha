@@ -16,9 +16,6 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:username).is_at_least(User::MIN_USERNAME_LENGTH) }
     it { should validate_length_of(:username).is_at_most(User::MAX_USERNAME_LENGTH) }
     it { should_not allow_value('!NVAL!D').for(:username) }
-    it { should validate_presence_of(:password) }
-    it { should validate_length_of(:password).is_at_least(User::MIN_PASSWORD_LENGTH) }
-    it { should validate_length_of(:password).is_at_most(User::MAX_PASSWORD_LENGTH) }
     it { should validate_presence_of(:first_name) }
     it { should validate_length_of(:first_name).is_at_most(User::MAX_FIRST_NAME_LENGTH) }
     it { should validate_presence_of(:last_name) }
@@ -38,6 +35,28 @@ RSpec.describe User, type: :model do
       user2.valid?
       invalid_birthdate_error_message = I18n.t('activerecord.errors.models.user.attributes.birthdate.invalid')
       expect(user2.errors[:birthdate]).to include(invalid_birthdate_error_message)
+    end
+
+    let!(:user3) { build(:user, password: nil) }
+    it "shouldn't allow password to be blank" do
+      user3.valid?
+      blank_password_error_message = I18n.t('activerecord.errors.models.user.attributes.password.blank')
+      expect(user3.errors[:password]).to include(blank_password_error_message)
+    end
+
+    let!(:user4) { build(:user, password: 'a' * (User::MIN_PASSWORD_LENGTH - 1)) }
+    it "shouldn't allow password to be too short" do
+      user4.valid?
+      short_password_error_message = I18n.t('activerecord.errors.models.user.attributes.password.too_short')
+      expect(user4.errors[:password]).to include(short_password_error_message)
+    end
+
+    let!(:user5) { build(:user, password: 'a' * (User::MAX_PASSWORD_LENGTH + 1)) }
+    it "shouldn't allow password to be too long" do
+      user5.valid?
+      long_password_error_message =
+        I18n.t('activerecord.errors.models.user.attributes.password.too_long', maximum: User::MAX_PASSWORD_LENGTH)
+      expect(user5.errors[:password]).to include(long_password_error_message)
     end
   end
 

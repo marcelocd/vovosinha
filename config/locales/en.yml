@@ -136,6 +136,10 @@ en:
               invalid_format: "format is invalid. Allowed characters: 'a' to 'z', '0' to '9', '_' and '.'"
             birthdate:
               invalid: "cannot be tomorrow or later"
+            password:
+              blank: "can't be blank"
+              too_long: "must have at most %{maximum} characters"
+              too_short: "must have at least 8 characters"
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
