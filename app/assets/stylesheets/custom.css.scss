@@ -1,1 +1,40 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+.navigation-bar {
+  background-color: #F5DFEA !important;
+}
+.login-main {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.login-div-hr {
+  position: relative;
+  font-size: 18px;
+  color: #aaa;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.login-hr {
+  background-color: #F5DFEA;
+  height: 1px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.login-title {
+  text-align: center;
+  color: #A93B4A;
+  line-height: 200%;
+}
+.login-card {
+  background-color: #F5DFEA;
+  width: 400px;
+  margin: auto;
+}
+.login-body {
+  background-image: image-url('roses-background.jpg');
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
