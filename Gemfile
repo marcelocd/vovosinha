@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
+gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jsonapi-rails'
 gem 'pagy'
 
