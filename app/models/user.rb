@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :lockable, :timeoutable, :trackable
 
   ROLES = %w[admin manager employee]
   EMAIL_REGEXP = URI::MailTo::EMAIL_REGEXP
@@ -44,6 +45,10 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def self.find_for_database_authentication conditions = {}
+    find_by(username: conditions[:email]) || find_by(email: conditions[:email])
   end
 
   private
