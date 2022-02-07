@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   private
 
   def layout
-    if is_a?(Devise::SessionsController)
-      'login'
+    if is_a?(Devise::SessionsController) || is_a?(Devise::PasswordsController)
+      'sessions'
     else
       'application'
     end

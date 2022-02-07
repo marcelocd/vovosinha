@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="card forgot-password-card">
+    <div class="card-body">
+      <div class="forgot-password-main">
+        <h3 class="sessions-title"><%= I18n.t('devise.passwords.new.forgot_your_password') %></h3>
+        <div class="sessions-div-hr">
+          <hr class="sessions-hr">
+        </div>
+        <%= form_for(resource,
+                     as: resource_name,
+                     url: password_path(resource_name),
+                     html: { method: :post }) do |f| %>
+          <%= render "shared/forgot_password_error_messages", resource: resource %>
+          <div class="forgot-password-inputs-container justify-content-center">
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.text_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+            </div>
+            <div class="pb-2">
+              <%= f.submit I18n.t('devise.passwords.send_me_instructions'), class: 'btn btn btn-primary pb-2' %>
+            </div>
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</div>
+

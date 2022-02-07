@@ -3,11 +3,17 @@
 .navigation-bar {
   background-color: #F5DFEA !important;
 }
+.sessions-body {
+  background-image: image-url('roses-background.jpg');
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
 .login-main {
   max-width: 320px;
   margin: 0 auto;
 }
-.login-div-hr {
+.sessions-div-hr {
   position: relative;
   font-size: 18px;
   color: #aaa;
@@ -16,13 +22,13 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.login-hr {
+.sessions-hr {
   background-color: #F5DFEA;
   height: 1px;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
-.login-title {
+.sessions-title {
   text-align: center;
   color: #A93B4A;
   line-height: 200%;
@@ -32,9 +38,15 @@
   width: 400px;
   margin: auto;
 }
-.login-body {
-  background-image: image-url('roses-background.jpg');
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
+.forgot-password-main {
+  margin: 0 auto;
+}
+.forgot-password-inputs-container {
+  max-width: 320px;
+  margin: auto;
+}
+.forgot-password-card {
+  background-color: #F5DFEA;
+  width: 500px;
+  margin: auto;
 }
