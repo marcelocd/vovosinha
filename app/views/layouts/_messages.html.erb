@@ -1,6 +1,5 @@
 <% flash.each do |name, msg| %>
-  <div class="<%= flash_method_class(name) %>"
-       role="alert">
+  <div class="<%= flash_method_class(name) %>" role="alert">
     <%= msg %>
     <button type="button"
             class="close"
