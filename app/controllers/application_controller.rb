@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def layout
     if is_a?(Devise::SessionsController) || is_a?(Devise::PasswordsController)
-      'sessions'
+      'devise'
     else
       'application'
     end

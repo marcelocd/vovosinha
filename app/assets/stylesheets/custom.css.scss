@@ -3,7 +3,7 @@
 .navigation-bar {
   background-color: #F5DFEA !important;
 }
-.sessions-body {
+.devise-body {
   background-image: image-url('roses-background.jpg');
   display: flex;
   align-items: center;
@@ -13,7 +13,7 @@
   max-width: 320px;
   margin: 0 auto;
 }
-.sessions-div-hr {
+.devise-div-hr {
   position: relative;
   font-size: 18px;
   color: #aaa;
@@ -22,13 +22,13 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.sessions-hr {
+.devise-hr {
   background-color: #F5DFEA;
   height: 1px;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
-.sessions-title {
+.devise-title {
   text-align: center;
   color: #A93B4A;
   line-height: 200%;
