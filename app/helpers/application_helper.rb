@@ -21,4 +21,8 @@ module ApplicationHelper
       'notice' => 'alert alert-success alert-dismissible fade show'
     }[name]
   end
+
+  def minimum_password_length
+    User::MIN_PASSWORD_LENGTH
+  end
 end

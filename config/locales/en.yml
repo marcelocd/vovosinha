@@ -192,7 +192,9 @@ en:
       edit:
         change_my_password: Change my password
         change_your_password: Change your password
+        characters_minimum: Characters minimum
         confirm_new_password: Confirm new password
+        errors: The following errors prevented your password from being saved
         new_password: New password
       new:
         forgot_your_password: Forgot your password?

@@ -192,7 +192,9 @@ pt-BR:
       edit:
         change_my_password: Alterar minha senha
         change_your_password: Alterar sua senha
+        characters_minimum: Caracteres no mínimo
         confirm_new_password: Confirme sua nova senha
+        errors: Os seguintes erros impediram sua senha de ser salva
         new_password: Nova senha
       new:
         forgot_your_password: Esqueceu sua senha?
