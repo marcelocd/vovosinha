@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :set_locale
+  
   layout :layout
   
   before_action :authenticate_user!
@@ -7,6 +9,11 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    session[:locale] = I18n.locale
   end
 
   private

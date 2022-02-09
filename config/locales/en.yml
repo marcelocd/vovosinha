@@ -140,6 +140,10 @@ en:
               blank: "can't be blank"
               too_long: "must have at most %{maximum} characters"
               too_short: "must have at least 8 characters"
+  default:
+    english: English
+    language: Language
+    portuguese: Portuguese
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
@@ -205,7 +209,7 @@ en:
       send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
       updated: Your password has been changed successfully. You are now signed in.
       updated_not_active: Your password has been changed successfully.
-      send_me_instructions: Send me reset password instructions
+      send_me_instructions: Send me instructions
     registrations:
       destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
       edit:
@@ -232,6 +236,9 @@ en:
         sign_in: Log in
       signed_in: Signed in successfully.
       signed_out: Signed out successfully.
+      login: Log in
+      password: Password
+      username_or_email: Username or email
     shared:
       links:
         back: Back

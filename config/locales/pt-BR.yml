@@ -64,7 +64,7 @@ pt-BR:
         password: Senha
         password_confirmation: Confirme sua senha
         remember_created_at: Lembrar criado em
-        remember_me: Lembre-se de mim
+        remember_me: Lembrar dados
         reset_password_sent_at: Resetar senha enviado em
         reset_password_token: Resetar token de senha
         role: Papel
@@ -140,6 +140,10 @@ pt-BR:
               blank: "não pode ficar em branco"
               too_long: "deve ter no máximo %{maximum} carateres"
               too_short: "deve ter pelo menos 8 caracteres"
+  default:
+    english: Inglês
+    language: Idioma
+    portuguese: Português
   devise:
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.
@@ -205,7 +209,7 @@ pt-BR:
       send_paranoid_instructions: Se o seu email existir em nosso banco de dados, você receberá um email com um link para recuperação da senha.
       updated: A sua senha foi alterada com sucesso. Você está autenticado.
       updated_not_active: Sua senha foi alterada com sucesso.
-      send_me_instructions: Enviar instruções de alteração de senha
+      send_me_instructions: Enviar instruções
     registrations:
       destroyed: Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
       edit:
@@ -232,6 +236,9 @@ pt-BR:
         sign_in: Login
       signed_in: Login efetuado com sucesso.
       signed_out: Logout efetuado com sucesso.
+      login: Login
+      password: Senha
+      username_or_email: Nome de usuário ou e-mail
     shared:
       links:
         back: Voltar

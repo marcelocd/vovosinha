@@ -25,4 +25,11 @@ module ApplicationHelper
   def minimum_password_length
     User::MIN_PASSWORD_LENGTH
   end
+
+  def locale_options
+    [
+      { language: 'english', code: 'en' },
+      { language: 'portuguese', code: 'pt-BR' }
+    ]
+  end
 end

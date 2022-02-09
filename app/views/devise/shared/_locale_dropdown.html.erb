@@ -1,0 +1,18 @@
+<div class="dropdown show">
+  <a class="btn btn-sm dropdown-toggle"
+    href="#"
+    role="button"
+    id="deviseLocaleMenuLink"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false">
+    <%= t('default.language') %>
+  </a>
+  <div id="deviseDropdownLocaleOptions" class="dropdown-menu float-right" aria-labelledby="deviseLocaleMenuLink">
+    <% locale_options.each do |option| %>
+        <%= link_to t("default.#{option[:language]}"),
+                    params.permit(:page, :locale).merge(locale: option[:code]),
+                    class: 'dropdown-item' %>
+    <% end %>
+  </div>
+</div>
