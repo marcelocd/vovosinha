@@ -17,7 +17,7 @@
               <%= f.label :password, I18n.t('devise.passwords.edit.new_password') %>
               <div>
                 <em>
-                  (<%= "#{minimum_password_length} #{I18n.t('devise.passwords.edit.characters_minimum').downcase}" %>)
+                  <%= "(#{minimum_password_length} #{I18n.t('devise.passwords.edit.characters_minimum').downcase})" %>
                 </em>
               </div>
               <%= f.password_field :password,
@@ -31,8 +31,15 @@
                                    autocomplete: "new-password",
                                    class: 'form-control devise-input-field' %>
             </div>
-            <div class="pb-2">
-              <%= f.submit I18n.t('devise.passwords.edit.change_my_password'), class: 'btn btn btn-primary pb-2' %>
+            <div class="row">
+              <div class="col-8">
+                <div class="pb-2">
+                  <%= f.submit I18n.t('devise.passwords.edit.change_my_password'), class: 'btn btn btn-primary pb-2' %>
+                </div>
+              </div>
+              <div class="col-4">
+                <%= render 'devise/shared/locale_dropdown' %>
+              </div>
             </div>
             <%= render "devise/shared/links" %>
           </div>
