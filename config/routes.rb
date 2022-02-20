@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: :registration
+
   root to: 'home#index'
 
   namespace :api do

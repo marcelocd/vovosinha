@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  scope :active, -> { where(deleted_at: nil) }
+  scope :inactive, -> { where.not(deleted_at: nil) }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,15 +20,19 @@ class User < ApplicationRecord
 
   enum role: ROLES
 
-  before_save :downcase_email
-  before_save :downcase_username
+  belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
+  
+  has_many :service_orders, foreign_key: 'creator_id'
+  has_many :deleted_users, class_name: 'User', foreign_key: 'deleted_by_id'
+
+  has_one_attached :profile_image
   
   validates :email, presence: true,
-                    uniqueness: { case_sensitive: false },
+                    uniqueness: { case_sensitive: false, scope: :deleted_at },
                     length: { maximum: MAX_EMAIL_LENGTH },
                     format: { with: EMAIL_REGEXP }
   validates :username, presence: true,
-                       uniqueness: { case_sensitive: false },
+                       uniqueness: { case_sensitive: false, scope: :deleted_at },
                        length: { minimum: MIN_USERNAME_LENGTH, maximum: MAX_USERNAME_LENGTH },
                        format: { with: USERNAME_REGEXP,
                                  message: I18n.t('activerecord.errors.models.user.attributes.username.invalid_format') }
@@ -38,9 +45,24 @@ class User < ApplicationRecord
   validate :password_length_must_be_valid
   validate :birthdate_must_be_today_or_before
 
-  has_many :service_orders, foreign_key: 'creator_id'
+  before_save :downcase_email
+  before_save :downcase_username
 
-  has_one_attached :profile_image
+  def active
+    deleted_at.nil?
+  end
+
+  def active?
+    active
+  end
+
+  def inactive
+    deleted_at.present?
+  end
+
+  def inactive?
+    inactive
+  end
 
   def full_name
     "#{first_name} #{last_name}"

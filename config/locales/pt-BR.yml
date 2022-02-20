@@ -132,18 +132,24 @@ pt-BR:
               invalid: "deve ser menor que ou igual ao preço do serviço menos a comissão do serviço"
         user:
           attributes:
-            username:
-              invalid_format: "com formato inválido. Caracteres permitidos: 'a' a 'z', '0' a '9', '_' e '.'"
             birthdate:
               invalid: "não pode ser amanhã ou depois"
+            email:
+              taken: "já está sendo usado"
             password:
               blank: "não pode ficar em branco"
               too_long: "deve ter no máximo %{maximum} carateres"
               too_short: "deve ter pelo menos 8 caracteres"
+            username:
+              invalid_format: "com formato inválido. Caracteres permitidos: 'a' a 'z', '0' a '9', '_' e '.'"
   default:
     english: Inglês
     language: Idioma
     portuguese: Português
+  success:
+    models:
+      user:
+        deleted: Usuário deletado com sucesso!
   devise:
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.
@@ -274,3 +280,9 @@ pt-BR:
       not_saved:
         one: 'Não foi possível salvar %{resource}: 1 erro'
         other: 'Não foi possível salvar %{resource}: %{count} erros.'
+      permission_denied: 'Você não tem permissão para efetuar esta ação.'
+    models:
+      user:
+        edit:
+          same_user: 'Você só pode editar seu próprio perfil.'
+        inactive: 'Você deve estar ativo para efetuar esta ação.'

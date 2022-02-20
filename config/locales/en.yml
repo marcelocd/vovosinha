@@ -132,18 +132,24 @@ en:
               invalid: "must be less than or equal to service price minus service commission"
         user:
           attributes:
-            username:
-              invalid_format: "format is invalid. Allowed characters: 'a' to 'z', '0' to '9', '_' and '.'"
             birthdate:
               invalid: "cannot be tomorrow or later"
+            email:
+              taken: "already taken"
             password:
               blank: "can't be blank"
               too_long: "must have at most %{maximum} characters"
               too_short: "must have at least 8 characters"
+            username:
+              invalid_format: "format is invalid. Allowed characters: 'a' to 'z', '0' to '9', '_' and '.'"
   default:
     english: English
     language: Language
     portuguese: Portuguese
+  success:
+    models:
+      user:
+        deleted: User deleted successfully!
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
@@ -274,3 +280,9 @@ en:
       not_saved:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
+      permission_denied: "You don't have permission to perform this action."
+    models:
+      user:
+        edit:
+          same_user: 'You can only edit your own profile.'
+        inactive: 'You must be active to perform this action.'
