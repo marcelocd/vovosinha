@@ -245,6 +245,7 @@ en:
       login: Log in
       password: Password
       username_or_email: Username or email
+      inactive_user: Sorry. This user has been deactivated.
     shared:
       links:
         back: Back

@@ -245,6 +245,7 @@ pt-BR:
       login: Login
       password: Senha
       username_or_email: Nome de usuário ou e-mail
+      inactive_user: Sinto muito. Este usuário foi desativado.
     shared:
       links:
         back: Voltar

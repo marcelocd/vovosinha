@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApiController
   end
 
   def update
-    if @user.update(permitted_params)
+    if @user.update(permitted_params.merge(last_updated_by: current_user))
       render_user
     else
       render_user_errors
@@ -50,7 +50,7 @@ class Api::V1::UsersController < ApiController
   end
 
   def find_user
-    @user ||= User.find_by_id(params[:id])
+    @user ||= User.active.find_by_id(params[:id])
   end
 
   def permitted_params
@@ -65,7 +65,7 @@ class Api::V1::UsersController < ApiController
   end
 
   def render_user
-    render jsonapi: @user, include: %i[full_name]
+    render jsonapi: @user, include: %w[last_updated_by]
   end
 
   def render_user_errors

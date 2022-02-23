@@ -21,6 +21,7 @@ class User < ApplicationRecord
   enum role: ROLES
 
   belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
+  belongs_to :last_updated_by, class_name: 'User', foreign_key: 'last_updated_by_id', optional: true
   
   has_many :service_orders, foreign_key: 'creator_id'
   has_many :deleted_users, class_name: 'User', foreign_key: 'deleted_by_id'
@@ -28,11 +29,11 @@ class User < ApplicationRecord
   has_one_attached :profile_image
   
   validates :email, presence: true,
-                    uniqueness: { case_sensitive: false, scope: :deleted_at },
+                    uniqueness: { case_sensitive: false },
                     length: { maximum: MAX_EMAIL_LENGTH },
                     format: { with: EMAIL_REGEXP }
   validates :username, presence: true,
-                       uniqueness: { case_sensitive: false, scope: :deleted_at },
+                       uniqueness: { case_sensitive: false },
                        length: { minimum: MIN_USERNAME_LENGTH, maximum: MAX_USERNAME_LENGTH },
                        format: { with: USERNAME_REGEXP,
                                  message: I18n.t('activerecord.errors.models.user.attributes.username.invalid_format') }
@@ -64,12 +65,21 @@ class User < ApplicationRecord
     inactive
   end
 
+  def active_for_authentication?
+    super && active?
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
 
   def self.find_for_database_authentication conditions = {}
     find_by(username: conditions[:email]) || find_by(email: conditions[:email])
+  end
+
+  
+  def inactive_message
+    I18n.t('devise.sessions.inactive_user')
   end
 
   private
