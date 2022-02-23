@@ -7,6 +7,7 @@ RSpec.describe ServiceOrder, type: :model do
     it { should belong_to(:client) }
     it { should have_many(:service_order_items) }
     it { should have_many(:tips) }
+    it { should have_many(:professionals).through(:service_order_items) }
   end
 
   describe 'validations' do

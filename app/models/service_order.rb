@@ -15,6 +15,7 @@ class ServiceOrder < ApplicationRecord
 
   has_many :service_order_items
   has_many :tips
+  has_many :professionals, through: :service_order_items
 
   accepts_nested_attributes_for :service_order_items
 
