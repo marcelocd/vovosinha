@@ -2,17 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Professional, type: :model do
   describe 'associations' do
+    it { should belong_to(:account) }
     it { should have_many(:service_order_items) }
     it { should have_many(:commissions) }
     it { should have_many(:tips) }
   end
 
   describe 'validations' do
-    it { should validate_uniqueness_of(:email).case_insensitive }
+    it { should validate_uniqueness_of(:email).case_insensitive.scoped_to(:account_id) }
     it { should validate_length_of(:email).is_at_most(Professional::MAX_EMAIL_LENGTH) }
     it { should allow_value('valid@email.com').for(:email) }
     it { should_not allow_value('invalid_email.com').for(:email) }
     it { should validate_presence_of(:ssn) }
+    it { should validate_uniqueness_of(:ssn).case_insensitive.scoped_to(:account_id) }
     it { should validate_presence_of(:first_name) }
     it { should validate_length_of(:first_name).is_at_most(Professional::MAX_FIRST_NAME_LENGTH) }
     it { should validate_presence_of(:last_name) }

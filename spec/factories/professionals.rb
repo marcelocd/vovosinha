@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :professional do
+    account { create(:account) }
     email { Faker::Internet.email }
     ssn { Faker::IDNumber.valid.gsub(/[^\d]+/, '') }
     first_name { Faker::Name.first_name }

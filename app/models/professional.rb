@@ -13,11 +13,11 @@ class Professional < ApplicationRecord
   before_save :remove_non_digits_from_second_phone_number
 
   validates :email, presence: true,
-                    uniqueness: { case_sensitive: false },
+                    uniqueness: { case_sensitive: false, scope: :account_id },
                     length: { maximum: MAX_EMAIL_LENGTH },
                     format: { with: EMAIL_REGEXP }
   validates :ssn, presence: true,
-                  uniqueness: true,
+                  uniqueness: { case_sensitive: false, scope: :account_id },
                   format: { with: SSN_REGEXP }
   validates :first_name, presence: true, length: { maximum: MAX_FIRST_NAME_LENGTH }
   validates :last_name, presence: true, length: { maximum: MAX_LAST_NAME_LENGTH }
@@ -28,6 +28,8 @@ class Professional < ApplicationRecord
   validate :main_and_second_phone_numbers_must_be_different
   validate :main_phone_number_must_have_ten_digits
   validate :second_phone_number_must_have_ten_digits
+
+  belongs_to :account
 
   has_many :service_order_items
   has_many :commissions

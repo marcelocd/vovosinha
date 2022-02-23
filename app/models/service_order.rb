@@ -9,6 +9,7 @@ class ServiceOrder < ApplicationRecord
   validate :total_commission_cents_is_less_than_or_equal_to_total_price_cents
   validate :total_discount_cents_is_less_than_subtotal_price_cents
 
+  belongs_to :account
   belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
   belongs_to :client
 

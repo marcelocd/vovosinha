@@ -20,11 +20,14 @@ class User < ApplicationRecord
 
   enum role: ROLES
 
+  belongs_to :account
   belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
   belongs_to :last_updated_by, class_name: 'User', foreign_key: 'last_updated_by_id', optional: true
   
   has_many :service_orders, foreign_key: 'creator_id'
   has_many :deleted_users, class_name: 'User', foreign_key: 'deleted_by_id'
+
+  has_one :owned_account, class_name: 'Account', foreign_key: 'owned_by_id'
 
   has_one_attached :profile_image
   
@@ -69,17 +72,16 @@ class User < ApplicationRecord
     super && active?
   end
 
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
   def self.find_for_database_authentication conditions = {}
     find_by(username: conditions[:email]) || find_by(email: conditions[:email])
   end
-
   
   def inactive_message
     I18n.t('devise.sessions.inactive_user')
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
   private

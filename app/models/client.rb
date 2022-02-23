@@ -12,7 +12,7 @@ class Client < ApplicationRecord
   before_save :remove_non_digits_from_main_phone_number
   before_save :remove_non_digits_from_second_phone_number
   
-  validates :email, uniqueness: { case_sensitive: false },
+  validates :email, uniqueness: { case_sensitive: false, scope: :account_id },
                     length: { maximum: MAX_EMAIL_LENGTH },
                     format: { with: EMAIL_REGEXP }
   validates :first_name, presence: true, length: { maximum: MAX_FIRST_NAME_LENGTH }
@@ -23,6 +23,8 @@ class Client < ApplicationRecord
   validate :main_phone_number_must_have_ten_digits
   validate :second_phone_number_must_have_ten_digits
 
+  belongs_to :account
+  
   has_many :service_orders
 
   def full_name
