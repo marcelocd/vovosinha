@@ -15,7 +15,7 @@ class ServiceOrderItem < ApplicationRecord
   belongs_to :service
   belongs_to :professional
 
-  has_many :commissions
+  has_one :commission
 
   def service_price
     service_price_cents.to_i / 100.0
