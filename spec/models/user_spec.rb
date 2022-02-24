@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
     it { should belong_to(:last_updated_by).class_name('User').with_foreign_key('last_updated_by_id').optional }
     it { should belong_to(:deleted_by).class_name('User').with_foreign_key('deleted_by_id').optional }
     it { should have_one(:owned_account).class_name('Account').with_foreign_key('owned_by_id') }
-    it { should have_many(:service_orders).with_foreign_key('creator_id') }
+    it { should have_many(:service_orders).with_foreign_key('created_by_id') }
     it { should have_many(:deleted_users).class_name('User').with_foreign_key('deleted_by_id') }
   end
 
