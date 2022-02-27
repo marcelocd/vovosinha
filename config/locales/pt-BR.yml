@@ -133,10 +133,14 @@ pt-BR:
               invalid: "deve ser maior que ou igual à comissão total"
         service_order_item:
           attributes:
+            professional_id:
+              invalid_account_id: "deve pertencer a um pedido de serviço com a mesma conta que a de seu profissional"
             service_commission_cents:
               invalid: "deve ser menor que ou igual ao preço do serviço"
             service_discount_cents:
               invalid: "deve ser menor que ou igual ao preço do serviço menos a comissão do serviço"
+            service_id:
+              invalid_account_id: "deve pertencer a um pedido de serviço com a mesma conta que a de seu serviço"
         user:
           attributes:
             birthdate:

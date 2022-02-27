@@ -36,6 +36,27 @@ RSpec.describe ServiceOrderItem, type: :model do
         I18n.t('activerecord.errors.models.service_order_item.attributes.service_discount_cents.invalid')
       expect(service_order_item2.errors[:service_discount_cents]).to include(service_discount_cents_error_message)
     end
+
+    let!(:account1) { create(:account) }
+    let!(:account2) { create(:account) }
+    let!(:service_order) { create(:service_order, account: account1) }
+    let!(:service) { create(:service, account: account2) }
+    let!(:service_order_item3) { build(:service_order_item, service_order: service_order, service: service) }
+    it "shouldn't allow service_order and service to have different account_ids" do
+      service_order_item3.valid?
+      invalid_account_id_message_error =
+        I18n.t('activerecord.errors.models.service_order_item.attributes.service_id.invalid_account_id')
+      expect(service_order_item3.errors[:service_id]).to include(invalid_account_id_message_error)
+    end
+
+    let!(:professional) { create(:professional, account: account2) }
+    let!(:service_order_item4) { build(:service_order_item, service_order: service_order, professional: professional) }
+    it "shouldn't allow service_order and service to have different account_ids" do
+      service_order_item4.valid?
+      invalid_account_id_message_error =
+        I18n.t('activerecord.errors.models.service_order_item.attributes.professional_id.invalid_account_id')
+      expect(service_order_item4.errors[:professional_id]).to include(invalid_account_id_message_error)
+    end
   end
 
   describe '#service_price' do

@@ -133,10 +133,14 @@ en:
               invalid: "must be greater than or equal to total commission"
         service_order_item:
           attributes:
+            professional_id:
+              invalid_account_id: "must belong to a service order with the same account as its professional's"
             service_commission_cents:
               invalid: "must be less than or equal to service price"
             service_discount_cents:
               invalid: "must be less than or equal to service price minus service commission"
+            service_id:
+              invalid_account_id: "must belong to a service order with the same account as its service's"
         user:
           attributes:
             birthdate:
