@@ -65,12 +65,16 @@ class ServiceOrder < ApplicationRecord
   end
 
   def creator_account_id_must_be_valid
-    return if !account_id.present? || !created_by.present? || (account_id == created_by.account_id)
+    return if !account_id.present? ||
+              !created_by_id.present? ||
+              (account_id == created_by.account_id)
     errors.add(:account_id, :invalid)
   end
 
   def client_account_id_must_be_valid
-    return if !account_id.present? || !client.present? || (account_id == client.account_id)
+    return if !account_id.present? ||
+              !client_id.present? ||
+              (account_id == client.account_id)
     errors.add(:account_id, :invalid)
   end
 end
