@@ -1,6 +1,8 @@
 pt-BR:
   activerecord:
     attributes:
+      account:
+        name: Nome
       client:
         birthdate: Data de aniversário
         deleted_at: Deletado em
@@ -73,6 +75,9 @@ pt-BR:
         unlock_token: Token de desbloqueio
         updated_at: Atualizado em
     models:
+      account:
+        one: Conta
+        other: Contas
       client:
         one: Cliente
         other: Clientes
@@ -118,6 +123,8 @@ pt-BR:
               ten_digits: "deve ter 10 dígitos"
         service_order:
           attributes:
+            account_id:
+              invalid: "deve ser a mesma para o pedido de serviço, seu criador e cliente"
             total_commission_cents:
               invalid: "deve ser menor que ou igual ao preço total"
             total_discount_cents:

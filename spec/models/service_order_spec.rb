@@ -45,6 +45,23 @@ RSpec.describe ServiceOrder, type: :model do
         I18n.t('activerecord.errors.models.service_order.attributes.total_discount_cents.invalid')
       expect(service_order3.errors[:total_discount_cents]).to include(invalid_total_discount_cents_error_message)
     end
+
+    let!(:account1) { create(:account) }
+    let!(:account2) { create(:account) }
+    let!(:creator) { create(:user, account: account1) }
+    let!(:service_order4) { build(:service_order, account: account2, created_by: creator) }
+    it "shouldn't allow service_order and created_by to have different account_ids" do
+      service_order4.valid?
+      invalid_account_id_message_error = I18n.t('activerecord.errors.models.service_order.attributes.account_id.invalid')
+      expect(service_order4.errors[:account_id]).to include(invalid_account_id_message_error)
+    end
+
+    let!(:service_order5) { build(:service_order, account: account2) }
+    it "shouldn't allow service_order's and client's account_id to be different" do
+      service_order4.valid?
+      invalid_account_id_message_error = I18n.t('activerecord.errors.models.service_order.attributes.account_id.invalid')
+      expect(service_order4.errors[:account_id]).to include(invalid_account_id_message_error)
+    end
   end
 
   describe '#subtotal_price' do

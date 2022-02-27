@@ -1,6 +1,8 @@
 en:
   activerecord:
     attributes:
+      account:
+        name: Name
       client:
         birthdate: Birth date
         deleted_at: Deleted at
@@ -73,6 +75,9 @@ en:
         unlock_token: Unlock token
         updated_at: Updated at
     models:
+      account:
+        one: Account
+        other: Accounts
       client:
         one: Client
         other: Clients
@@ -118,6 +123,8 @@ en:
               ten_digits: "must have 10 digits"
         service_order:
           attributes:
+            account_id:
+              invalid: "must be the same for the service order, its creator and client"
             total_commission_cents:
               invalid: "must be less than or equal to total price"
             total_discount_cents:
