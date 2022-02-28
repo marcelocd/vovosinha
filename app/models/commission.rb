@@ -1,4 +1,6 @@
 class Commission < ApplicationRecord
+  default_scope { where(deleted_at: nil) }
+
   belongs_to :professional
   belongs_to :service_order_item
 

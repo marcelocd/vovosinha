@@ -1,4 +1,6 @@
 class ServiceOrderItem < ApplicationRecord
+  default_scope { where(deleted_at: nil) }
+  
   MIN_SERVICE_NAME_LENGTH = 2
   MAX_SERVICE_NAME_LENGTH = 60
 
