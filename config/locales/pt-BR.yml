@@ -41,6 +41,7 @@ pt-BR:
         deleted_at: Deletada em
         deleted_by: Deletada por
         description: Descrição
+        last_updated_by: Atualizada por último por
         name: Nome
       service_order:
         deleted_at: Deletado em

@@ -41,6 +41,7 @@ en:
         deleted_at: Deleted at
         deleted_by: Deleted by
         description: Description
+        last_updated_by: Last updated by
         name: Name
       service_order:
         deleted_at: Deleted_at
