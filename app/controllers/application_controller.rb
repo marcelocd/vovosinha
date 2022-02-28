@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
     session[:locale] = I18n.locale
   end
 
+  def current_account
+    return unless current_user.present?
+    current_user.account  
+  end
+
   private
 
   def layout
