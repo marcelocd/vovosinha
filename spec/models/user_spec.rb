@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:service_orders).with_foreign_key('created_by_id') }
     it { should have_many(:deleted_users).class_name('User').with_foreign_key('deleted_by_id') }
     it { should have_many(:deleted_services).class_name('Service').with_foreign_key('deleted_by_id') }
+    it { should have_many(:deleted_service_categories).class_name('ServiceCategory').with_foreign_key('deleted_by_id') }
     it { should have_many(:deleted_service_orders).class_name('ServiceOrder').with_foreign_key('deleted_by_id') }
     it { should have_many(:deleted_clients).class_name('Client').with_foreign_key('deleted_by_id') }
     it { should have_many(:deleted_professionals).class_name('Professional').with_foreign_key('deleted_by_id') }

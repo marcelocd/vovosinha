@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe ServiceCategory, type: :model do
   describe 'associations' do
     it { should belong_to(:account) }
+    it { should belong_to(:deleted_by).class_name('User').with_foreign_key('deleted_by_id').optional }
     it { should have_many(:services) }
   end
 
