@@ -20,7 +20,7 @@ RSpec.describe Service, type: :model do
     let!(:account1) { create(:account) }
     let!(:account2) { create(:account) }
     let!(:service_category) { create(:service_category, account: account1) }
-    let!(:service) { build(:service, account: account2) }
+    let!(:service) { build(:service, account: account2, service_category: service_category) }
     it "shouldn't allow service and service category to belong to different accounts" do
       service.valid?
       invalid_account_id_message_error = I18n.t('activerecord.errors.models.service.attributes.account_id.invalid')
