@@ -110,6 +110,10 @@ pt-BR:
             second_phone_number:
               equal_to_main_phone_number: "deve ser diferente do número de telefone principal"
               ten_digits: "deve ter 10 dígitos"
+        commission:
+          attributes:
+            professional_id:
+              invalid_account_id: "deve pertencer à mesma conta que à do pedido de serviço"
         professional:
           attributes:
             birthdate:
