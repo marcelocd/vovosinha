@@ -26,6 +26,7 @@ class User < ApplicationRecord
   
   has_many :service_orders, foreign_key: 'created_by_id'
   has_many :deleted_users, class_name: 'User', foreign_key: 'deleted_by_id'
+  has_many :deleted_service_orders, class_name: 'ServiceOrder', foreign_key: 'deleted_by_id'
 
   has_one :owned_account, class_name: 'Account', foreign_key: 'owned_by_id'
 

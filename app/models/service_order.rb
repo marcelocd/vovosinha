@@ -2,6 +2,7 @@ class ServiceOrder < ApplicationRecord
   belongs_to :account
   belongs_to :created_by, class_name: 'User', foreign_key: 'created_by_id'
   belongs_to :client
+  belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
 
   has_many :service_order_items
   has_many :tips

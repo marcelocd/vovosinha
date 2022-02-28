@@ -5,6 +5,7 @@ RSpec.describe ServiceOrder, type: :model do
     it { should belong_to(:account) }
     it { should belong_to(:created_by).class_name('User').with_foreign_key('created_by_id') }
     it { should belong_to(:client) }
+    it { should belong_to(:deleted_by).class_name('User').with_foreign_key('deleted_by_id').optional }
     it { should have_many(:service_order_items) }
     it { should have_many(:tips) }
     it { should have_many(:professionals).through(:service_order_items) }
