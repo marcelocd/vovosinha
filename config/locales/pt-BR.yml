@@ -34,6 +34,7 @@ pt-BR:
         deleted_by: Deletado por
         description: Descrição
         duration_minutes: Duração
+        last_updated_by: Atualizado por último por
         name: Nome
         price_cents: Preço
       service_category:
