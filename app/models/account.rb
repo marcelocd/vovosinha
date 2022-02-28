@@ -8,8 +8,8 @@ class Account < ApplicationRecord
   belongs_to :owned_by, class_name: 'User',
                         foreign_key: 'owned_by_id',
                         optional: true
-
   belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
+  belongs_to :last_updated_by, class_name: 'User', foreign_key: 'last_updated_by_id', optional: true
   
   has_many :users
   has_many :clients

@@ -5,6 +5,7 @@ en:
         name: Name
         deleted_at: Deleted at
         deleted_by: Deleted by
+        last_updated_by: Last updated by
       client:
         birthdate: Birth date
         deleted_at: Deleted at

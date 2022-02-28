@@ -4,6 +4,7 @@ pt-BR:
       account:
         deleted_at: Deletada em
         deleted_by: Deletada por
+        last_updated_by: Atualizada por último por
         name: Nome
       client:
         birthdate: Data de aniversário
