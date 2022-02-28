@@ -3,6 +3,11 @@ class Service < ApplicationRecord
   MAX_NAME_LENGTH = 60
   MAX_DESCRIPTION_LENGTH = 500
 
+  belongs_to :account
+  belongs_to :service_category
+
+  has_many :service_order_items
+
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false, scope: :account_id },
                    length: { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
@@ -11,10 +16,7 @@ class Service < ApplicationRecord
   validates :commission_percentage, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 1 }
   validates :duration_minutes, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
-  belongs_to :account
-  belongs_to :service_category
-
-  has_many :service_order_items
+  validate :account_id_must_be_valid
 
   def price
     return if price_cents.nil?
@@ -29,5 +31,14 @@ class Service < ApplicationRecord
   def commission
     return if commission_cents.nil?
     commission_cents / 100.0
+  end
+
+  private
+
+  def account_id_must_be_valid
+    return if !account_id.present? ||
+              !service_category_id.present? ||
+              (account_id == service_category.account_id)
+    errors.add(:account_id, :invalid)
   end
 end

@@ -16,6 +16,16 @@ RSpec.describe Service, type: :model do
     it { should validate_numericality_of(:price_cents).is_greater_than(0).only_integer }
     it { should validate_numericality_of(:commission_percentage).is_greater_than(0).is_less_than_or_equal_to(1) }
     it { should validate_numericality_of(:duration_minutes).is_greater_than(0).only_integer }
+
+    let!(:account1) { create(:account) }
+    let!(:account2) { create(:account) }
+    let!(:service_category) { create(:service_category, account: account1) }
+    let!(:service) { build(:service, account: account2) }
+    it "shouldn't allow service and service category to belong to different accounts" do
+      service.valid?
+      invalid_account_id_message_error = I18n.t('activerecord.errors.models.service.attributes.account_id.invalid')
+      expect(service.errors[:account_id]).to include(invalid_account_id_message_error)
+    end
   end
 
   describe '#commission' do
