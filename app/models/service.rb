@@ -5,6 +5,7 @@ class Service < ApplicationRecord
 
   belongs_to :account
   belongs_to :service_category
+  belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
 
   has_many :service_order_items
 

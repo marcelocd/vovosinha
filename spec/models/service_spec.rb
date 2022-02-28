@@ -4,6 +4,7 @@ RSpec.describe Service, type: :model do
   describe 'associations' do
     it { should belong_to(:account) }
     it { should belong_to(:service_category) }
+    it { should belong_to(:deleted_by).class_name('User').with_foreign_key('deleted_by_id').optional }
     it { should have_many(:service_order_items) }
   end
 
