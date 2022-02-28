@@ -1,4 +1,7 @@
 class Client < ApplicationRecord
+  scope :active, -> { where(deleted_at: nil) }
+  scope :inactive, -> { where.not(deleted_at: nil) }
+  
   EMAIL_REGEXP = URI::MailTo::EMAIL_REGEXP
   GENDERS = %w[not_informed female male other]
   MAX_EMAIL_LENGTH = 105
@@ -7,6 +10,11 @@ class Client < ApplicationRecord
   PHONE_NUMBER_LENGTH = 10
 
   enum gender: GENDERS
+
+  belongs_to :account
+  belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
+  
+  has_many :service_orders
 
   before_save :downcase_email
   before_save :remove_non_digits_from_main_phone_number
@@ -22,10 +30,6 @@ class Client < ApplicationRecord
   validate :main_and_second_phone_numbers_must_be_different
   validate :main_phone_number_must_have_ten_digits
   validate :second_phone_number_must_have_ten_digits
-
-  belongs_to :account
-  
-  has_many :service_orders
 
   def full_name
     "#{first_name} #{last_name}"
