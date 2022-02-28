@@ -2,19 +2,26 @@ pt-BR:
   activerecord:
     attributes:
       account:
+        deleted_at: Deletada em
+        deleted_by: Deletada por
         name: Nome
       client:
         birthdate: Data de aniversário
         deleted_at: Deletado em
+        deleted_by: Deletado por
         email: E-mail
         first_name : Primeiro nome
         gender: Gênero
         last_name: Último nome
         main_phone_number: Número de telefone principal
         second_phone_number: Segundo número de telefone
+      commission:
+        cents: Centavos
+        deleted_at: Deletada em
       professional:
         birthdate: Data de aniversário
         deleted_at: Deletado em
+        deleted_by: Deletado por
         email: E-mail
         first_name : Primeiro nome
         last_name: Último nome
@@ -24,16 +31,19 @@ pt-BR:
       service:
         commission_percentage: Porcentagem de comissão
         deleted_at: Deletado em
+        deleted_by: Deletado por
         description: Descrição
         duration_minutes: Duração
         name: Nome
         price_cents: Preço
       service_category:
         deleted_at: Deletada em
+        deleted_by: Deletada por
         description: Descrição
         name: Nome
       service_order:
         deleted_at: Deletado em
+        deleted_by: Deletado por
         subtotal_price_cents: Preço subtotal
         total_discount_cents: Desconto total
         total_price_cents: Preço total
@@ -45,6 +55,9 @@ pt-BR:
         service_price_cents: Preço do serviço
         service_discount_cents: Desconto do serviço
         service_commission_cents: Comissão do serviço
+      tip:
+        cents: Centavos
+        deleted_at: Deletada em
       user:
         birthdate: Data de aniversário
         confirmation_sent_at: Confirmação enviada em
@@ -55,6 +68,7 @@ pt-BR:
         current_sign_in_at: Atualmente logado em
         current_sign_in_ip: IP do acesso atual
         deleted_at: Deletado em
+        deleted_by: Deletado por
         email: E-mail
         encrypted_password: Senha criptografada
         failed_attempts: Tentativas sem sucesso

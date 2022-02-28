@@ -3,18 +3,25 @@ en:
     attributes:
       account:
         name: Name
+        deleted_at: Deleted at
+        deleted_by: Deleted by
       client:
         birthdate: Birth date
         deleted_at: Deleted at
+        deleted_by: Deleted by
         email: Email
         first_name: First name
         gender: Gender
         last_name: Last name
         main_phone_number: Main phone number
         second_phone_number: Second phone number
+      commission:
+        cents: Cents
+        deleted_at: Deleted at
       professional:
         birthdate: Birth date
         deleted_at: Deleted at
+        deleted_by: Deleted by
         email: Email
         first_name : First name
         last_name: Last name
@@ -24,16 +31,19 @@ en:
       service:
         commission_percentage: Commission percentage
         deleted_at: Deleted at
+        deleted_by: Deleted by
         description: Description
         duration_minutes: Duration
         name: Name
         price_cents: Price
       service_category:
         deleted_at: Deleted at
+        deleted_by: Deleted by
         description: Description
         name: Name
       service_order:
         deleted_at: Deleted_at
+        deleted_by: Deleted by
         subtotal_price_cents: Subtotal price
         total_discount_cents: Total discount
         total_price_cents: Total price
@@ -45,6 +55,9 @@ en:
         service_price_cents: Service price
         service_discount_cents: Service discount
         service_commission_cents: Service commission
+      tip:
+        cents: Cents
+        deleted_at: Deleted at
       user:
         birthdate: Birth date
         confirmation_sent_at: Confirmation sent at
@@ -55,6 +68,7 @@ en:
         current_sign_in_at: Current sign in at
         current_sign_in_ip: Current sign in IP
         deleted_at: Deleted at
+        deleted_by: Deleted by
         email: Email
         encrypted_password: Encrypted password
         failed_attempts: Failed attempts
