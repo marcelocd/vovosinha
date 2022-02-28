@@ -1,4 +1,7 @@
 class ServiceCategory < ApplicationRecord
+  scope :active, -> { where(deleted_at: nil) }
+  scope :inactive, -> { where.not(deleted_at: nil) }
+  
   MIN_NAME_LENGTH = 2
   MAX_NAME_LENGTH = 60
   MAX_DESCRIPTION_LENGTH = 500
