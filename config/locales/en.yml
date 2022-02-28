@@ -13,6 +13,7 @@ en:
         first_name: First name
         gender: Gender
         last_name: Last name
+        last_updated_by: Last updated by
         main_phone_number: Main phone number
         second_phone_number: Second phone number
       commission:
