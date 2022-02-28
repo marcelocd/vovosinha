@@ -1,4 +1,7 @@
 class Professional < ApplicationRecord
+  scope :active, -> { where(deleted_at: nil) }
+  scope :inactive, -> { where.not(deleted_at: nil) }
+  
   EMAIL_REGEXP = URI::MailTo::EMAIL_REGEXP
   MAX_EMAIL_LENGTH = 105
   MAX_FIRST_NAME_LENGTH = 30
@@ -6,6 +9,15 @@ class Professional < ApplicationRecord
   PHONE_NUMBER_LENGTH = 10
   SSN_LENGTH = 9
   SSN_REGEXP = /\A(?!000|666)[0-8][0-9]{2}-?(?!00)[0-9]{2}-?(?!0000)[0-9]{4}\z/
+
+  belongs_to :account
+  belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
+
+  has_many :service_order_items
+  has_many :commissions
+  has_many :tips
+
+  has_one_attached :photo
 
   before_save :downcase_email
   before_save :remove_non_digits_from_ssn
@@ -28,14 +40,6 @@ class Professional < ApplicationRecord
   validate :main_and_second_phone_numbers_must_be_different
   validate :main_phone_number_must_have_ten_digits
   validate :second_phone_number_must_have_ten_digits
-
-  belongs_to :account
-
-  has_many :service_order_items
-  has_many :commissions
-  has_many :tips
-
-  has_one_attached :photo
 
   def full_name
     "#{first_name} #{last_name}"
