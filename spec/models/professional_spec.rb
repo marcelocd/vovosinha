@@ -4,6 +4,7 @@ RSpec.describe Professional, type: :model do
   describe 'associations' do
     it { should belong_to(:account) }
     it { should belong_to(:deleted_by).class_name('User').with_foreign_key('deleted_by_id').optional }
+    it { should belong_to(:last_updated_by).class_name('User').with_foreign_key('last_updated_by_id').optional }
     it { should have_many(:service_order_items) }
     it { should have_many(:commissions) }
     it { should have_many(:tips) }

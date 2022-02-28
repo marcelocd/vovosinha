@@ -26,6 +26,7 @@ pt-BR:
         email: E-mail
         first_name : Primeiro nome
         last_name: Último nome
+        last_updated_by: Atualizado por último por
         main_phone_number: Número de telefone principal
         second_phone_number: Segundo número de telefone
         ssn: SSN

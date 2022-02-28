@@ -26,6 +26,7 @@ en:
         email: Email
         first_name : First name
         last_name: Last name
+        last_updated_by: Last updated by
         main_phone_number: Main phone number
         second_phone_number: Second phone number
         ssn: SSN

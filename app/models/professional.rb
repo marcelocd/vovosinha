@@ -12,6 +12,7 @@ class Professional < ApplicationRecord
 
   belongs_to :account
   belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
+  belongs_to :last_updated_by, class_name: 'User', foreign_key: 'last_updated_by_id', optional: true
 
   has_many :service_order_items
   has_many :commissions
