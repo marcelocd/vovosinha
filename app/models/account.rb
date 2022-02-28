@@ -1,4 +1,7 @@
 class Account < ApplicationRecord
+  scope :active, -> { where(deleted_at: nil) }
+  scope :inactive, -> { where.not(deleted_at: nil) }
+  
   MIN_NAME_LENGTH = 3
   MAX_NAME_LENGTH = 60
 
@@ -6,6 +9,8 @@ class Account < ApplicationRecord
                         foreign_key: 'owned_by_id',
                         optional: true
 
+  belongs_to :deleted_by, class_name: 'User', foreign_key: 'deleted_by_id', optional: true
+  
   has_many :users
   has_many :clients
   has_many :service_categories

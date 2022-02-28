@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Account do
   describe 'associations' do
     it { should belong_to(:owned_by).class_name('User').with_foreign_key('owned_by_id').optional }
+    it { should belong_to(:deleted_by).class_name('User').with_foreign_key('deleted_by_id').optional }
     it { should have_many(:users) }
     it { should have_many(:clients) }
     it { should have_many(:service_orders) }
