@@ -24,4 +24,20 @@ class Account < ApplicationRecord
   validates :company_name, presence: true,
                            uniqueness: { case_sensitive: false },
                            length: { minimum: MIN_COMPANY_NAME_LENGTH, maximum: MAX_COMPANY_NAME_LENGTH }
+
+  def active
+    deleted_at.nil?
+  end
+
+  def active?
+    active
+  end
+
+  def inactive
+    deleted_at.present?
+  end
+
+  def inactive?
+    inactive
+  end
 end

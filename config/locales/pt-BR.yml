@@ -289,7 +289,7 @@ pt-BR:
       login: Login
       password: Senha
       username_or_email: Nome de usuário ou e-mail
-      inactive_user: Sinto muito. Este usuário foi desativado.
+      inactive: Sinto muito. Este usuário ou conta foram desativados.
     shared:
       links:
         back: Voltar

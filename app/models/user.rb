@@ -75,7 +75,7 @@ class User < ApplicationRecord
   end
 
   def active_for_authentication?
-    super && active?
+    super && active? && account.active?
   end
 
   def self.find_for_database_authentication conditions = {}
@@ -83,7 +83,7 @@ class User < ApplicationRecord
   end
   
   def inactive_message
-    I18n.t('devise.sessions.inactive_user')
+    I18n.t('devise.sessions.inactive')
   end
 
   def full_name

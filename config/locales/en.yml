@@ -289,7 +289,7 @@ en:
       login: Log in
       password: Password
       username_or_email: Username or email
-      inactive_user: Sorry. This user has been deactivated.
+      inactive: Sorry. This user or account has been deactivated.
     shared:
       links:
         back: Back
