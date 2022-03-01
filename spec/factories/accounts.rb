@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :account do
-    name { Faker::Lorem.words(number: Account::MIN_NAME_LENGTH)
-                       .join(' ')
-                       .first(Account::MAX_NAME_LENGTH) }
+    company_name { Faker::Lorem.words(number: Account::MIN_COMPANY_NAME_LENGTH)
+                               .join(' ')
+                               .first(Account::MAX_COMPANY_NAME_LENGTH) }
   end
 end

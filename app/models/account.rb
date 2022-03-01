@@ -2,8 +2,8 @@ class Account < ApplicationRecord
   scope :active, -> { where(deleted_at: nil) }
   scope :inactive, -> { where.not(deleted_at: nil) }
   
-  MIN_NAME_LENGTH = 3
-  MAX_NAME_LENGTH = 60
+  MIN_COMPANY_NAME_LENGTH = 3
+  MAX_COMPANY_NAME_LENGTH = 60
 
   belongs_to :owned_by, class_name: 'User',
                         foreign_key: 'owned_by_id',
@@ -21,7 +21,7 @@ class Account < ApplicationRecord
   has_many :commissions, through: :professionals
   has_many :tips, through: :professionals
 
-  validates :name, presence: true,
-                   uniqueness: { case_sensitive: false },
-                   length: { minimum: MIN_NAME_LENGTH, maximum: MAX_NAME_LENGTH }
+  validates :company_name, presence: true,
+                           uniqueness: { case_sensitive: false },
+                           length: { minimum: MIN_COMPANY_NAME_LENGTH, maximum: MAX_COMPANY_NAME_LENGTH }
 end

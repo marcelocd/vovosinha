@@ -2,7 +2,7 @@ en:
   activerecord:
     attributes:
       account:
-        name: Name
+        company_name: Company name
         deleted_at: Deleted at
         deleted_by: Deleted by
         last_updated_by: Last updated by
@@ -190,6 +190,8 @@ en:
     portuguese: Portuguese
   success:
     models:
+      account:
+        deleted: Account deleted successfully!
       user:
         deleted: User deleted successfully!
   devise:

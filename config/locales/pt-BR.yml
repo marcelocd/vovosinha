@@ -2,10 +2,10 @@ pt-BR:
   activerecord:
     attributes:
       account:
+        company_name: Nome da empresa
         deleted_at: Deletada em
         deleted_by: Deletada por
         last_updated_by: Atualizada por último por
-        name: Nome
       client:
         birthdate: Data de aniversário
         deleted_at: Deletado em
@@ -190,6 +190,8 @@ pt-BR:
     portuguese: Português
   success:
     models:
+      account:
+        deleted: Conta deletada com sucesso!
       user:
         deleted: Usuário deletado com sucesso!
   devise:
