@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApiController
   def new ; end
 
   def create
-    @user = User.new(permitted_params)
+    @user = User.new(permitted_params.merge(account: current_account))
     if @user.save
       render_user
     else
