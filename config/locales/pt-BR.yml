@@ -327,6 +327,10 @@ pt-BR:
         other: 'Não foi possível salvar %{resource}: %{count} erros.'
       permission_denied: 'Você não tem permissão para efetuar esta ação.'
     models:
+      account:
+        not_found: 'Conta não encontrada'
+      client:
+        not_found: 'Cliente não encontrado'
       user:
         edit:
           same_user: 'Você só pode editar seu próprio perfil.'

@@ -327,6 +327,10 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
       permission_denied: "You don't have permission to perform this action."
     models:
+      account:
+        not_found: 'Account not found'
+      client:
+        not_found: 'Client not found'
       user:
         edit:
           same_user: 'You can only edit your own profile.'
