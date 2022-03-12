@@ -9,7 +9,11 @@ class Api::V1::AccountsController < ApiController
   end
 
   def show
-    render_account
+    if @account.present?
+      render_account
+    else
+      render_account_not_found_error
+    end
   end
 
   def new ; end
@@ -24,11 +28,17 @@ class Api::V1::AccountsController < ApiController
   end
 
   def edit
-    render_account
+    if @account.present?
+      render_account
+    else
+      render_account_not_found_error
+    end
   end
 
   def update
-    if @account.update(permitted_params.merge(last_updated_by: current_user))
+    if !@account.present?
+      render_account_not_found_error
+    elsif @account.update(permitted_params.merge(last_updated_by: current_user))
       render_account
     else
       render_account_errors
@@ -36,7 +46,9 @@ class Api::V1::AccountsController < ApiController
   end
 
   def destroy
-    if @account.update(deleted_at: DateTime.now, deleted_by: current_user)
+    if !@account.present?
+      render_account_not_found_error
+    elsif @account.update(deleted_at: DateTime.now, deleted_by: current_user)
       render json: { success: I18n.t('success.models.account.deleted') }
     else
       render_account_errors
@@ -64,18 +76,22 @@ class Api::V1::AccountsController < ApiController
   end
 
   def render_account_errors
-    render json: { errors: @account.errors.full_messages }
+    render json: { errors: @account.errors.full_messages }, status: UNPROCESSABLE_ENTITY_STATUS_CODE
   end
 
   def require_same_account
 		unless (current_user.account == current_account && current_user.manager?) || current_user.admin?
-			render json: { errors: [t('errors.messages.permission_denied')] }
+			render json: { errors: [t('errors.messages.permission_denied')] }, status: FORBIDDEN_STATUS_CODE
 		end
 	end
 
   def require_admin
 		unless current_user.admin?
-			render json: { errors: [t('errors.messages.permission_denied')] }
+			render json: { errors: [t('errors.messages.permission_denied')] }, status: FORBIDDEN_STATUS_CODE
 		end
 	end
+
+  def render_account_not_found_error
+    render json: { errors: [t('errors.models.account.not_found')] }, status: NOT_FOUND_STATUS_CODE
+  end
 end
